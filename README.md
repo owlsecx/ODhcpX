@@ -18,7 +18,7 @@
 
 ## 📌 Overview
 
-Offline DHCP / IPv6-RA server configuration auditor (dhcpd, Kea, dnsmasq, radvd)
+ODhcpX — Offline DHCP / IPv6-RA Server Config Auditor. It provides iSC dhcpd.conf parser (blocks, statements, include following) — authoritative, DDNS/TSIG, client-updates, OMAPI keys, failover peers, execute() / class hooks, lease-file placement, BOOTP, ranges vs critical hosts. Built-in demo/self-test paths and severity gates help validate detections without touching production when those flags are used.
 
 ---
 
@@ -30,11 +30,6 @@ Offline DHCP / IPv6-RA server configuration auditor (dhcpd, Kea, dnsmasq, radvd)
 - radvd auditor — router lifetime, prefix lifetimes (rogue-RA persistence), RDNSS/DNSSL, intervals
 - File-permission checks (world-writable configs, scripts, sockets, lease files; secret readability)
 - CWE + MITRE ATT&CK (T1557 / T1557.003) mapping, severity, remediation, score + A+…F grade
-- Auto-discovery under a root (offline images / mounts)
-- Exports: TXT / Markdown / JSON / CSV / SARIF 2.1.0
-- Hardened configuration templates for all 4 daemons
-- Built-in self-test (--demo) with secret-leak check
-- Strictly read-only: never modifies audited files
 
 ---
 
@@ -48,7 +43,10 @@ Offline DHCP / IPv6-RA server configuration auditor (dhcpd, Kea, dnsmasq, radvd)
 ## 🚀 Usage
 
 ```bash
-./ODhcpX
+./ODhcpX                                     # interactive menu
+./ODhcpX --scan -r /path/to/root
+./ODhcpX --demo
+./ODhcpX --help
 ```
 
 ---
